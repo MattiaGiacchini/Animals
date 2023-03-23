@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <ui-header></ui-header>
+    <router-view class="mt-16" />
   </div>
 </template>
+
+<script>
+import UiHeader from './components/uiHeader.vue';
+
+export default {
+  components: {
+    "ui-header": UiHeader
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
