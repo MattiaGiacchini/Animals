@@ -37,9 +37,10 @@
 <script>
 export default {
     name: "uiLogo",
-    data() {
-        return {
-            fillColor: "#ffffff"
+    props: {
+        fillColor: {
+            type: String,
+            default: "#ffffff"
         }
     }
 };
