@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="h-screen">
     <ui-header></ui-header>
-    <router-view class="mt-16 bg-app-bg h-full " />
+    <router-view class="pt-16 bg-app-bg h-full" />
   </div>
 </template>
 
