@@ -21,7 +21,7 @@ const routes = [
   {
     path: "/animals",
     name: "AnimalsList",
-    component: () => import("@/views/HomeView.vue"),
+    component: () => import("@/views/AnimalsListView.vue"),
   },
   {
     path: "/animals/:animal",
