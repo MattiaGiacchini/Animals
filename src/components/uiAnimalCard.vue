@@ -1,6 +1,6 @@
 <template>
     <router-link :to="`animals/${id}`"
-        class="rounded-md bg-white w-96 flex flex-col p-5 text-lg font-medium shadow-lg hover:cursor-pointer">
+        class="rounded-md bg-white w-[32%] flex flex-col p-5 text-lg font-medium shadow-lg hover:cursor-pointer hover:shadow-xl">
         <div class="text2xl font-semibold bg-primary-light/50 rounded-md mb-5 p-1">{{ name }}</div>
         <div class="flex flex-col">
             <div class="flex justify-start">Type: {{ type }}</div>
