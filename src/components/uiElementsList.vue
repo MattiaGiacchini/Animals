@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row flex-wrap gap-6 p-6 justify-center overflow-y-auto scrollbar">
+    <div class="flex flex-row flex-wrap gap-5 p-5 justify-center overflow-y-auto scrollbar">
         <ui-animal-card v-for="(element, index) in elements" class="bg-primary-light" :key="element.id" :id="element.id"
             :name="element.name" :type="element.type" :breed="element.breed" :gender="element.gender"
             :vaccinated="element.vaccinated" :lastVisit="element.lastVisit" :lastUpdate="element.lastUpdate">{{ index }}
