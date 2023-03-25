@@ -1,33 +1,33 @@
 <template>
-    <router-link :to="`animals/${id}`"
-        class="rounded-md bg-white w-[32%] flex flex-col p-5 text-lg font-medium shadow-lg hover:cursor-pointer hover:shadow-xl">
-        <div class="text2xl font-semibold bg-primary-light/50 rounded-md mb-5 p-1">{{ name }}</div>
-        <div class="flex flex-col">
-            <div class="flex justify-start">Type: {{ type }}</div>
-            <div class="flex justify-start">Breed: {{ breed }}</div>
-        </div>
-        <div class="flex flex-col">
-            <div class="flex justify-start">Gender: {{ gender }}</div>
-        </div>
-        <div class="flex flex-col">
-            <div class="flex justify-start">Vaccinated: {{ vaccinated ? "YES" : "NO" }}</div>
-            <div class="flex justify-start">Last visit: {{ new Date(lastVisit).toLocaleDateString("es-ES") }}</div>
-        </div>
-    </router-link>
+  <router-link
+    :to="`animals/${animalData.id}`"
+    class="rounded-md bg-white flex flex-col p-5 font-medium shadow-lg hover:cursor-pointer hover:shadow-xl justify-start"
+  >
+    <div class="text-lg font-semibold bg-primary-light/50 rounded-md mb-5 p-1">
+      {{ animalData.name }}
+    </div>
+    <div class="flex flex-col">
+      <div class="flex justify-start">
+        Type: {{ animalData.type }}
+      </div>
+      <div class="flex justify-start">
+        Breed: {{ animalData.breed }}
+      </div>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex justify-start">
+        Gender: {{ animalData.gender }}
+      </div>
+    </div>
+
+  </router-link>
 </template>
   
 <script>
 export default {
-    name: "uiAnimalCard",
+    name: "UiAnimalCard",
     props: {
-        id: { type: String, default: null },
-        name: { type: String, default: null },
-        type: { type: String, default: null },
-        breed: { type: String, default: null },
-        gender: { type: String, default: null },
-        vaccinated: { type: Boolean, default: false },
-        lastVisit: { type: String, default: null },
-        lastUpdate: { type: String, default: null },
+      animalData: {type: Object, default: null}
     },
 
 };
