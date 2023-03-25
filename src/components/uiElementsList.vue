@@ -1,20 +1,31 @@
 <template>
-    <div class="flex flex-row flex-wrap gap-5 p-5 justify-center overflow-y-auto scrollbar">
-        <ui-animal-card v-for="(element, index) in elements" class="bg-primary-light" :key="element.id" :id="element.id"
-            :name="element.name" :type="element.type" :breed="element.breed" :gender="element.gender"
-            :vaccinated="element.vaccinated" :lastVisit="element.lastVisit" :lastUpdate="element.lastUpdate">{{ index }}
-        </ui-animal-card>
-
-
-
-    </div>
+  <div class="grid grid-cols-3 xl:grid-cols-4 gap-5 p-5 justify-center overflow-y-auto scrollbar">
+    <ui-animal-card
+      v-for="(element, index) in elements"
+      :id="element.id"
+      :key="element.id"
+      class="bg-primary-light"
+      :name="element.name"
+      :type="element.type"
+      :breed="element.breed"
+      :gender="element.gender"
+      :vaccinated="element.vaccinated"
+      :lastVisit="element.lastVisit"
+      :lastUpdate="element.lastUpdate"
+    >
+      {{ index }}
+    </ui-animal-card>
+  </div>
 </template>
   
 <script>
 import uiAnimalCard from '@/components/uiAnimalCard.vue';
 
 export default {
-    name: "uiAnimalsList",
+    name: "UiAnimalsList",
+    components: {
+        "ui-animal-card": uiAnimalCard
+    },
     data() {
         return {
             elements: [
@@ -230,9 +241,6 @@ export default {
             ]
 
         }
-    },
-    components: {
-        "ui-animal-card": uiAnimalCard
     },
 };
 </script>
