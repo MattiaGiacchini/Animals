@@ -26,11 +26,11 @@
         <!-- Modal footer -->
         <div
           v-if="secondaryButtonText || primaryButtonText"
-          class="flex mt-5 justify-end gap-5"
+          class="flex mt-5 justify-end gap-5 w-full"
         >
           <ui-button
             type="default"
-            class="w-auto"
+            class="w-fit"
             :loading="secondaryButtonLoading"
             @click.prevent="handleSecondaryClick"
           >
@@ -40,7 +40,7 @@
           </ui-button>
           <ui-button
             type="primary"
-            class="w-auto"
+            class="w-fit"
             :loading="primaryButtonLoading"
             @click.prevent="handlePrimaryClick"
           >
