@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row w-screen h-full">
-    <ui-elements-list class="w-4/5"></ui-elements-list>
+    <ui-animals-list class="w-4/5"></ui-animals-list>
     <ui-side-bar class="w-1/5">
       <div slot="subtitle">
         Filtros
@@ -28,7 +28,7 @@
   
 <script>
 // @ is an alias to /src
-import uiElementsList from '@/components/uiElementsList.vue';
+import UiAnimalsList from '@/components/uiAnimalsList.vue';
 import uiSideBar from '@/components/uiGeneral/uiSideBar.vue';
 import uiAnimalsFilters from '@/components/uiAnimalsFilters.vue';
 import uiButton from '@/components/uiGeneral/uiButton.vue'
@@ -36,7 +36,7 @@ import uiButton from '@/components/uiGeneral/uiButton.vue'
 export default {
     name: 'AnimalsListView',
     components: {
-        "ui-elements-list": uiElementsList,
+        "ui-animals-list": UiAnimalsList,
         "ui-side-bar": uiSideBar,
         "ui-animals-filters": uiAnimalsFilters,
         "ui-button": uiButton,

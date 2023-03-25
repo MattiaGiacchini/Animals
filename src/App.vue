@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import UiHeader from './components/uiHeader.vue';
+import UiHeader from '@/components/uiHeader/uiHeader.vue';
 
 export default {
   components: {

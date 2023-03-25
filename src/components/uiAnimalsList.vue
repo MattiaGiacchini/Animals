@@ -1,17 +1,10 @@
 <template>
   <div class="grid grid-cols-3 xl:grid-cols-4 gap-5 p-5 justify-center overflow-y-auto scrollbar">
     <ui-animal-card
-      v-for="(element, index) in elements"
-      :id="element.id"
-      :key="element.id"
+      v-for="(animal, index) in animals"
+      :animalData="animal"
+      :key="animal.id"
       class="bg-primary-light"
-      :name="element.name"
-      :type="element.type"
-      :breed="element.breed"
-      :gender="element.gender"
-      :vaccinated="element.vaccinated"
-      :lastVisit="element.lastVisit"
-      :lastUpdate="element.lastUpdate"
     >
       {{ index }}
     </ui-animal-card>
@@ -28,7 +21,7 @@ export default {
     },
     data() {
         return {
-            elements: [
+            animals: [
                 {
                     "id": "b82e9d4ef4f4db3fca8e0e82f3d3c7b1",
                     "name": "Max",
