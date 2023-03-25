@@ -6,16 +6,7 @@
     <ui-animal-data-modal
       v-if="displayModal"
       @closeModal="displayModal = false"
-      :animalData='{
-        id: "b82e9d4ef4f4db3fca8e0e82f3d3c7b1",
-        name: "Max",
-        type: "Dog",
-        breed: "Labrador Retriever",
-        gender: "Female",
-        vaccinated: true,
-        lastVisit: "2022-12-12T14:30:25.678Z",
-        lastUpdate: "2022-12-12T14:30:25.678Z"
-      }'
+      :animalData=animalData
     ></ui-animal-data-modal>
     <ui-side-bar class="w-1/5">
 
@@ -49,6 +40,7 @@ import uiSideBar from '@/components/uiGeneral/uiSideBar.vue';
 import uiAnimalsFilters from '@/components/uiAnimalsFilters.vue';
 import uiButton from '@/components/uiGeneral/uiButton.vue'
 import uiAnimalDataModal from '@/components/uiAnimalDetails/uiAnimalDataModal.vue';
+import { getAnimalById } from '@/api/endpoints/animals';
 
 export default {
   components: {
@@ -59,9 +51,22 @@ export default {
   },
   data() {
     return {
-      displayModal: false
+      displayModal: false,
+      animalData: null
     }
   },
+  created() {
+    const id = this.$route.params.animal;
+    console.log(id)
+    getAnimalById(id)
+      .then(data => {
+        this.animalData = data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
 
 }
 </script>
