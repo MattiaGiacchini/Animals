@@ -1,18 +1,25 @@
 <template>
-    <button
-        class="flex w-full disabled:opacity-30 disabled:pointer-events-none disabled:cursor-not-allowed border border-transparent text-sm font-medium focus:outline-none focus:ring-0 justify-center align-middle items-center rounded-md py-2 px-4 transition-colors"
-        :class="`${type}`" :disabled="disabled || loading" @click.prevent="handleClick" v-bind="$attrs"
-        :aria-disabled="disabled || loading">
-        <ui-loading v-if="loading" :class="type === 'default' ? 'fill-primary' : 'fill-white'" />
-        <slot></slot>
-    </button>
+  <button
+    class="flex w-full disabled:opacity-30 disabled:pointer-events-none disabled:cursor-not-allowed border border-transparent text-sm font-medium focus:outline-none focus:ring-0 justify-center align-middle items-center rounded-md py-2 px-4 transition-colors"
+    :class="`${type}`"
+    :disabled="disabled || loading"
+    v-bind="$attrs"
+    :aria-disabled="disabled || loading"
+    @click.prevent="handleClick"
+  >
+    <ui-loading
+      v-if="loading"
+      :class="type === 'default' ? 'fill-primary' : 'fill-white'"
+    ></ui-loading>
+    <slot></slot>
+  </button>
 </template>
   
 <script>
-import uiLoading from "@/components/uiLoading.vue";
+import uiLoading from "@/components/uiGeneral/uiLoading.vue";
 
 export default {
-    name: "uiButton",
+    name: "UiButton",
     components: {
         "ui-loading": uiLoading,
     },
@@ -45,7 +52,7 @@ export default {
     @apply bg-white border-primary text-primary;
 
     &:hover {
-        @apply bg-primary-light text-white border-primary-light;
+        @apply bg-primary text-white border-primary;
     }
 }
 
