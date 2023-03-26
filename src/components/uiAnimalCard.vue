@@ -8,16 +8,16 @@
     </div>
     <div class="flex flex-col">
       <div class="flex flex-row gap-1 justify-start">
-        <div class="font-extralight">Type:</div>
-        <div>{{ animalData.type }}</div>
+        <p class="font-extralight">Type:</p>
+        <p>{{ animalData.type }}</p>
       </div>
       <div class="flex flex-row gap-1 justify-start">
-        <div class="font-thin">Breed:</div>
-        <div>{{ animalData.breed }}</div>
+        <p class="font-thin">Breed:</p>
+        <p>{{ animalData.breed }}</p>
       </div>
       <div class="flex flex-row gap-1 justify-start">
-        <div class="font-light">Gender:</div>
-        <div>{{ animalData.gender }}</div>
+        <p class="font-light">Gender:</p>
+        <p>{{ animalData.gender }}</p>
       </div>
     </div>
   </router-link>
