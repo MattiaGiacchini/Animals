@@ -1,7 +1,10 @@
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
+const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
 
 // Allow CORS, but just for development pourpose
 var cors = require('cors')
@@ -257,24 +260,43 @@ app.post('/api/animals', (req, res) => {
 });
 
 
-// Route to update an existing animal
 app.put('/api/animals/:id', (req, res) => {
-    // Get the id parameter from the request URL
-    const id = req.params.id;
-    // Find the index of the animal with the matching id
-    const index = animals.findIndex(animal => animal.id === id);
-    // If the animal is not found, return a 404 error
-    if (index === -1) {
-        res.status(404).json({ message: 'Animal not found' });
+    // Get the animal ID from the request parameters
+    const animalId = req.params.id;
+    // Get the updated animal data from the request body
+    const updatedAnimal = req.body;
+    // Find the index of the animal with the given ID
+    const index = animals.findIndex(animal => animal.id === animalId);
+    // If the animal was found, update its data and return a response with the updated animal object
+    if (index !== -1) {
+      animals[index] = {
+        ...animals[index],
+        ...updatedAnimal,
+        id: animalId // Make sure the ID stays the same
+      };
+      res.json(animals[index]);
     } else {
-        // Update the animal with the new data from the request body
-        animals[index] = req.body;
-        // Set the animal's id to the original id parameter
-        animals[index].id = id;
-        // Return the updated animal object
-        res.json(animals[index]);
+      // If the animal was not found, return a response with a 404 status code
+      res.sendStatus(404);
     }
-});
+  });
+
+// Route to delete an animal
+app.delete('/api/animals/:id', (req, res) => {
+    // Get the animal ID from the request parameters
+    const id = req.params.id;
+    // Find the index of the animal with the given ID
+    const index = animals.findIndex(animal => animal.id === id);
+    // If the animal was found, remove it from the array and return a response with a 204 status code
+    if (index !== -1) {
+      animals.splice(index, 1);
+      res.sendStatus(204);
+    } else {
+      // If the animal was not found, return a response with a 404 status code
+      res.sendStatus(404);
+    }
+  });
+  
 
 
 // Start the server
