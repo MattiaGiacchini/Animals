@@ -3,10 +3,10 @@
     :title="$route.params.animal ? 'Update Animal' : 'New Animal'"
     :secondaryButtonLoading="false"
     :primaryButtonLoading="false"
-    :primaryButtonText="'Create'"
+    :primaryButtonText="$route.params.animal ? 'Update' : 'Create'"
     :secondaryButtonText="'Cancel'"
     @closeModal="closeModal"
-    @primaryClick="saveAnimal"
+    @primaryClick="saveOrUpdateAnimal"
     @secondaryClick="closeModal"
   >
     <div class="flex flex-row gap-5 w-full">
@@ -44,7 +44,7 @@
             label="Animal Type"
             class="w-1/2"
             :validation="$v.animalType"
-            >
+          >
             <ui-input
               v-model.trim="$v.animalType.$model"
               type="text"
@@ -54,10 +54,10 @@
           <!-- Animal breed -->
           <ui-field
             label="Animal Breed"
-            class="w-1/2"           
-            :validation="$v.animalBreed" 
-             >
-             <ui-input
+            class="w-1/2"
+            :validation="$v.animalBreed"
+          >
+            <ui-input
               v-model.trim="$v.animalBreed.$model"
               type="text"
             ></ui-input>
@@ -82,7 +82,7 @@
               v-model="vaccinated"
               label="Vaccinated"
               class="align-bottom"
-              @change="''"
+              @change="&quot;&quot;;"
             ></ui-switch>
           </div>
         </div>
@@ -90,14 +90,15 @@
     </div>
   </ui-modal>
 </template>
-  
+
 <script>
 import uiModal from "@/components/uiGeneral/uiModal.vue";
 import uiInput from "@/components/uiGeneral/uiInput.vue";
 import uiField from "@/components/uiGeneral/uiField.vue";
 import uiSwitch from "@/components/uiGeneral/uiSwitch.vue";
-import uiButtonPillsGroup from "@/components/uiGeneral/uiButtonPillsGroup.vue"
+import uiButtonPillsGroup from "@/components/uiGeneral/uiButtonPillsGroup.vue";
 import { required } from "vuelidate/lib/validators";
+import { updateAnimal, createAnimal } from "@/api/endpoints/animals";
 
 export default {
   name: "UiAnimalDataModal",
@@ -106,7 +107,7 @@ export default {
     "ui-field": uiField,
     "ui-modal": uiModal,
     "ui-switch": uiSwitch,
-    "ui-button-pills-group": uiButtonPillsGroup
+    "ui-button-pills-group": uiButtonPillsGroup,
   },
   props: {
     modalTitle: {
@@ -132,9 +133,9 @@ export default {
     animalData: {
       type: Object,
       default: null,
-    }
+    },
   },
-  
+
   data() {
     return {
       animalType: this.animalData ? this.animalData.type : null,
@@ -142,7 +143,9 @@ export default {
       animalBreed: this.animalData ? this.animalData.breed : null,
       vaccinated: this.animalData ? this.animalData.vaccinated : false,
       animalGender: this.animalData ? this.animalData.gender : "Male",
-      lastVisit: this.animalData ? this.timeStampToDate(this.animalData.lastVisit) : null,
+      lastVisit: this.animalData
+        ? this.timeStampToDate(this.animalData.lastVisit)
+        : null,
     };
   },
   validations: {
@@ -156,8 +159,8 @@ export default {
       required,
     },
     animalBreed: {
-      required
-    }
+      required,
+    },
   },
   methods: {
     closeModal() {
@@ -167,20 +170,42 @@ export default {
     handleGenderChange(value) {
       this.animalGender = value;
     },
-    saveAnimal() {
+    saveOrUpdateAnimal() {
       this.$v.$touch();
-      if (!this.$v.$invalid) {
-        this.closeModal()
-      } else {
-        console.log("ERRORS")
+      if (this.$v.$invalid) {
+        return;
       }
+
+      const animalData = {
+        type: this.animalType,
+        name: this.animalName,
+        gender: this.animalGender,
+        breed: this.animalBreed,
+        vaccinated: this.vaccinated,
+        lastVisit: this.lastVisit,
+        lastUpdate: new Date(),
+      };
+
+      const animalPromise =
+        this.animalData && this.animalData.id
+          ? updateAnimal(this.animalData.id, {
+              id: this.animalData.id,
+              ...animalData,
+            })
+          : createAnimal(animalData);
+
+      animalPromise
+        .then((data) => {
+          this.$emit("update-data", data);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => this.closeModal());
     },
     timeStampToDate(date) {
-      return new Date(date).toISOString().split('T')[0]
-    }
+      return new Date(date).toISOString().split("T")[0];
+    },
   },
-  mounted() {
-    console.log(this.animalData)
-  }
 };
 </script>
