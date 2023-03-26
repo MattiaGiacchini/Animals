@@ -7,11 +7,18 @@
       {{ animalData.name }}
     </div>
     <div class="flex flex-col">
-      <div class="flex justify-start">Type: {{ animalData.type }}</div>
-      <div class="flex justify-start">Breed: {{ animalData.breed }}</div>
-    </div>
-    <div class="flex flex-col">
-      <div class="flex justify-start">Gender: {{ animalData.gender }}</div>
+      <div class="flex flex-row gap-1 justify-start">
+        <div class="font-extralight">Type:</div>
+        <div>{{ animalData.type }}</div>
+      </div>
+      <div class="flex flex-row gap-1 justify-start">
+        <div class="font-thin">Breed:</div>
+        <div>{{ animalData.breed }}</div>
+      </div>
+      <div class="flex flex-row gap-1 justify-start">
+        <div class="font-light">Gender:</div>
+        <div>{{ animalData.gender }}</div>
+      </div>
     </div>
   </router-link>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col align-middle justify-center items-center">
     <ui-loading class="w-14 h-14 fill-primary"></ui-loading>
-    <p class="font-medium text-base mt-5">Loading...</p>
+    <p class="font-medium text-xl mt-5 text-primary">Loading...</p>
   </div>
 </template>
 <script>
