@@ -196,7 +196,7 @@ export default {
 
       animalPromise
         .then((data) => {
-          this.$emit("update-data", data);
+          this.$emit("updateData", data);
         })
         .catch((error) => {
           console.log(error);

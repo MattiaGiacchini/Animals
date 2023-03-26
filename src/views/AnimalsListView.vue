@@ -1,9 +1,13 @@
 <template>
   <div class="flex flex-row w-screen h-full">
-    <ui-animals-list class="w-4/5"></ui-animals-list>
+    <ui-animals-list
+      :animals="animals"
+      class="w-4/5"
+    ></ui-animals-list>
     <ui-animal-data-modal
       v-if="displayModal"
       @closeModal="displayModal = false"
+      @updateData="updateAnimalsList"
     ></ui-animal-data-modal>
     <ui-side-bar class="w-1/5">
       <div slot="subtitle">Filtros</div>
@@ -35,6 +39,7 @@ import uiSideBar from "@/components/uiGeneral/uiSideBar.vue";
 import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
 import uiButton from "@/components/uiGeneral/uiButton.vue";
 import UiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
+import { getAllAnimals } from "@/api/endpoints/animals";
 
 export default {
   name: "AnimalsListView",
@@ -47,8 +52,23 @@ export default {
   },
   data() {
     return {
+      animals: [],
       displayModal: false,
     };
+  },
+  methods: {
+    updateAnimalsList(animals) {
+      this.animals = animals;
+    },
+  },
+  created() {
+    getAllAnimals()
+      .then((data) => {
+        this.animals = data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>

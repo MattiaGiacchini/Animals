@@ -15,7 +15,6 @@
 
 <script>
 import uiAnimalCard from "@/components/uiAnimalCard.vue";
-import { getAllAnimals } from "@/api/endpoints/animals";
 
 export default {
   name: "UiAnimalsList",
@@ -26,17 +25,15 @@ export default {
     return {
       loading: false,
       info: null,
-      animals: [],
     };
   },
-  created() {
-    getAllAnimals()
-      .then((data) => {
-        this.animals = data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  props: {
+    animals: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
   },
 };
 </script>
