@@ -1,55 +1,77 @@
 <template>
   <div class="flex flex-row h-full">
-    <div
+    <ui-loading-overlay
       v-if="loading"
-      class="w-4/5 flex flex-row gap-1 justify-center items-center h-full fill-primary text-primary text-2xl"
-    >
-      <ui-loading-overlay></ui-loading-overlay>
-    </div>
+      class="w-full"
+    ></ui-loading-overlay>
     <div
-      class="w-4/5 flex flex-col gap-5"
+      class="w-3/5 py-20 mx-auto"
       v-else
     >
-      <h2>{{ animalData.name }}</h2>
+      <div
+        class="flex flex-col gap-5 rounded-md bg-white shadow-lg p-5 font-semibold text-base"
+      >
+        <div class="flex flex-row justify-between">
+          <h2 class="text-left text-3xl font-bold">{{ animalData.name }}</h2>
+          <p class="text-gray-500 font-thin my-auto">{{ animalData.id }}</p>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div class="flex flex-row gap-1 justify-start">
+            <p class="font-extralight">Type:</p>
+            <p>{{ animalData.type }}</p>
+          </div>
+          <div class="flex flex-row gap-1 justify-start">
+            <p class="font-thin">Breed:</p>
+            <p>{{ animalData.breed }}</p>
+          </div>
+          <div class="flex flex-row gap-1 justify-start">
+            <p class="font-light">Gender:</p>
+            <p>{{ animalData.gender }}</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div class="flex flex-row gap-1 justify-start">
+            <p class="font-light">Vaccinated:</p>
+            <p>{{ animalData.vaccinated ? "Yes" : "No" }}</p>
+          </div>
+          <div class="flex flex-row gap-1 justify-start">
+            <p class="font-light">Last visit:</p>
+            <p>{{ timeStampToDate(animalData.lastVisit) }}</p>
+          </div>
+          <div class="flex flex-row gap-1 justify-start">
+            <p class="font-light">Last update:</p>
+            <p>{{ timeStampToDateTime(animalData.lastUpdate) }}</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 items-end w-full">
+          <div class="flex flex-row gap-5 w-2/6">
+            <ui-button
+              :loading="loading"
+              @click="deleteAnimal()"
+            >
+              Delete
+            </ui-button>
+            <ui-button
+              :loading="loading"
+              type="primary"
+              @click="displayModal = true"
+            >
+              Edit
+            </ui-button>
+          </div>
+        </div>
+      </div>
     </div>
-
     <ui-animal-data-modal
       v-if="displayModal"
       @closeModal="displayModal = false"
       :animalData="animalData"
+      @updateData="updateAnimalDetails"
     ></ui-animal-data-modal>
-    <ui-side-bar class="w-1/5">
-      <ui-animals-filters
-        slot="main-content"
-        :animalsCategories="[]"
-      ></ui-animals-filters>
-      <div
-        slot="bottom-controls"
-        class="flex flex-col gap-5"
-      >
-        <div class="flex flex-row gap-5">
-          <ui-button
-            :loading="false"
-            @click="deleteAnimal()"
-          >
-            Delete
-          </ui-button>
-          <ui-button
-            :loading="false"
-            type="primary"
-            @click="displayModal = true"
-          >
-            Edit
-          </ui-button>
-        </div>
-      </div>
-    </ui-side-bar>
   </div>
 </template>
 
 <script>
-import uiSideBar from "@/components/uiGeneral/uiSideBar.vue";
-import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
 import uiButton from "@/components/uiGeneral/uiButton.vue";
 import uiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAnimalById, deleteAnimal } from "@/api/endpoints/animals";
@@ -58,8 +80,6 @@ import uiLoadingOverlay from "@/components/uiGeneral/uiLoadingOverlay.vue";
 export default {
   name: "AnimalDetailsView",
   components: {
-    "ui-side-bar": uiSideBar,
-    "ui-animals-filters": uiAnimalsFilters,
     "ui-button": uiButton,
     "ui-animal-data-modal": uiAnimalDataModal,
     "ui-loading-overlay": uiLoadingOverlay,
@@ -80,16 +100,32 @@ export default {
       .catch((error) => {
         console.log(error);
       })
-      .finally(() =>
-        setTimeout(() => {
-          this.loading = false;
-        }, 1000)
-      );
+      .finally(() => (this.loading = false));
   },
   methods: {
+    updateAnimalDetails(animal) {
+      this.animalData = animal;
+    },
     deleteAnimal() {
       deleteAnimal(this.$route.params.animal);
       this.$router.push({ name: "AnimalsList" }).catch(() => {});
+    },
+    timeStampToDate(date) {
+      return new Intl.DateTimeFormat("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(new Date(date));
+    },
+    timeStampToDateTime(date) {
+      return new Intl.DateTimeFormat("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h24",
+      }).format(new Date(date));
     },
   },
 };
