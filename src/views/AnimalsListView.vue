@@ -1,6 +1,11 @@
 <template>
   <div class="flex flex-row w-screen h-full">
+    <ui-loading-overlay
+      v-if="loading"
+      class="w-4/5"
+    ></ui-loading-overlay>
     <ui-animals-list
+      v-else
       :animals="animals"
       class="w-4/5"
     ></ui-animals-list>
@@ -40,6 +45,7 @@ import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
 import uiButton from "@/components/uiGeneral/uiButton.vue";
 import UiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAllAnimals } from "@/api/endpoints/animals";
+import uiLoadingOverlay from "@/components/uiGeneral/uiLoadingOverlay.vue";
 
 export default {
   name: "AnimalsListView",
@@ -49,11 +55,13 @@ export default {
     "ui-animals-filters": uiAnimalsFilters,
     "ui-button": uiButton,
     "ui-animal-data-modal": UiAnimalDataModal,
+    "ui-loading-overlay": uiLoadingOverlay,
   },
   data() {
     return {
       animals: [],
       displayModal: false,
+      loading: true,
     };
   },
   methods: {
@@ -68,7 +76,8 @@ export default {
       })
       .catch((error) => {
         console.log(error);
-      });
+      })
+      .finally(() => (this.loading = false));
   },
 };
 </script>
