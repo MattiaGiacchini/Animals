@@ -1,10 +1,12 @@
 <template>
   <div class="flex flex-row w-screen h-full">
     <ui-animals-list class="w-4/5"></ui-animals-list>
+    <ui-animal-data-modal
+      v-if="displayModal"
+      @closeModal="displayModal = false"
+    ></ui-animal-data-modal>
     <ui-side-bar class="w-1/5">
-      <div slot="subtitle">
-        Filtros
-      </div>
+      <div slot="subtitle">Filtros</div>
       <ui-animals-filters
         slot="main-content"
         :animalsCategories="[]"
@@ -17,6 +19,7 @@
           <ui-button
             :loading="false"
             type="primary"
+            @click="displayModal = true"
           >
             Create new
           </ui-button>
@@ -25,22 +28,27 @@
     </ui-side-bar>
   </div>
 </template>
-  
+
 <script>
-// @ is an alias to /src
-import UiAnimalsList from '@/components/uiAnimalsList.vue';
-import uiSideBar from '@/components/uiGeneral/uiSideBar.vue';
-import uiAnimalsFilters from '@/components/uiAnimalsFilters.vue';
-import uiButton from '@/components/uiGeneral/uiButton.vue'
+import UiAnimalsList from "@/components/uiAnimalsList.vue";
+import uiSideBar from "@/components/uiGeneral/uiSideBar.vue";
+import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
+import uiButton from "@/components/uiGeneral/uiButton.vue";
+import UiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 
 export default {
-    name: 'AnimalsListView',
-    components: {
-        "ui-animals-list": UiAnimalsList,
-        "ui-side-bar": uiSideBar,
-        "ui-animals-filters": uiAnimalsFilters,
-        "ui-button": uiButton,
-    }
-}
+  name: "AnimalsListView",
+  components: {
+    "ui-animals-list": UiAnimalsList,
+    "ui-side-bar": uiSideBar,
+    "ui-animals-filters": uiAnimalsFilters,
+    "ui-button": uiButton,
+    "ui-animal-data-modal": UiAnimalDataModal,
+  },
+  data() {
+    return {
+      displayModal: false,
+    };
+  },
+};
 </script>
-  

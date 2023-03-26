@@ -15,18 +15,14 @@
       @change="onChange"
     />
 
-
-
     <slot></slot>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "UiInput",
   inheritAttrs: false,
-
 
   props: {
     value: {
@@ -62,8 +58,6 @@ export default {
       type: String,
       default: "",
     },
-
-
   },
   data() {
     return {
@@ -87,11 +81,7 @@ export default {
       this.localValue = event.target.value;
     },
     onChange(event) {
-      if (
-        event.target &&
-        !this.focusLost &&
-        !event.bubbles
-      ) {
+      if (event.target && !this.focusLost && !event.bubbles) {
         this.localValue = event.target.value;
         this.$emit("change", event.target.value);
       }

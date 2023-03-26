@@ -1,18 +1,21 @@
 <template>
-  <div id="app" class="h-screen">
+  <div
+    id="app"
+    class="h-screen"
+  >
     <ui-header></ui-header>
-    <router-view class="pt-16 bg-app-bg h-full" />
+    <router-view class="pt-16 bg-app-bg h-full"></router-view>
   </div>
 </template>
 
 <script>
-import UiHeader from '@/components/uiHeader/uiHeader.vue';
+import UiHeader from "@/components/uiHeader/uiHeader.vue";
 
 export default {
   components: {
-    "ui-header": UiHeader
-  }
-}
+    "ui-header": UiHeader,
+  },
+};
 </script>
 
 <style lang="scss">

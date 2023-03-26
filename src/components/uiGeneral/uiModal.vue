@@ -1,6 +1,10 @@
 <template>
-  <div class="flex fixed z-[200] left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.4)] backdrop-blur-sm">
-    <div class="relative shadow-xl align-middle w-full m-auto max-h-full max-w-xl">
+  <div
+    class="flex fixed z-[200] left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.4)] backdrop-blur-sm"
+  >
+    <div
+      class="relative shadow-xl align-middle w-full m-auto max-h-full max-w-xl"
+    >
       <div class="relative bg-white rounded-lg p-5">
         <slot name="header">
           <!-- Modal header -->
@@ -26,31 +30,26 @@
         <!-- Modal footer -->
         <div
           v-if="secondaryButtonText || primaryButtonText"
-          class=" mt-5 w-full flex justify-end"
+          class="mt-5 w-full flex justify-end"
         >
           <div class="w-fit flex gap-5">
-
             <ui-button
-            type="default"
-            class="w-fit"
-            :loading="secondaryButtonLoading"
-            @click.prevent="handleSecondaryClick"
+              type="default"
+              class="w-fit"
+              :loading="secondaryButtonLoading"
+              @click.prevent="handleSecondaryClick"
             >
-            {{
-              secondaryButtonText
-            }}
-          </ui-button>
-          <ui-button
-            type="primary"
-            class="w-fit"
-            :loading="primaryButtonLoading"
-            @click.prevent="handlePrimaryClick"
-          >
-          {{
-            primaryButtonText
-          }}
-          </ui-button>
-        </div>
+              {{ secondaryButtonText }}
+            </ui-button>
+            <ui-button
+              type="primary"
+              class="w-fit"
+              :loading="primaryButtonLoading"
+              @click.prevent="handlePrimaryClick"
+            >
+              {{ primaryButtonText }}
+            </ui-button>
+          </div>
         </div>
       </div>
     </div>
@@ -88,7 +87,6 @@ export default {
       type: Boolean,
       default: false,
     },
-
   },
   methods: {
     handlePrimaryClick(event) {

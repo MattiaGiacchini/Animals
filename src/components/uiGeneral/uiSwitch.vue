@@ -15,14 +15,15 @@
           @change.stop="onChange"
         />
         <div class="line w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-        <div class="dot absolute w-6 h-6 bg-white rounded-full shadow-md border-[1px] -left-1 -top-1 transition"></div>
+        <div
+          class="dot absolute w-6 h-6 bg-white rounded-full shadow-md border-[1px] -left-1 -top-1 transition"
+        ></div>
       </div>
       <label
         :for="id"
         class="ml-3 text-gray-900 font-medium text-base"
-      >{{
-        label
-      }}</label>
+        >{{ label }}</label
+      >
     </label>
   </div>
 </template>
@@ -78,11 +79,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 input:checked {
-  ~.dot {
+  ~ .dot {
     @apply translate-x-[100%];
   }
 
-  ~.line {
+  ~ .line {
     @apply bg-primary;
   }
 }

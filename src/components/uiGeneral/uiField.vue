@@ -18,16 +18,21 @@
         </span>
       </div>
       <slot name="icons"></slot>
-      <div v-if="$slots.action" class="mt-0 right-0 absolute leading-6">
+      <div
+        v-if="$slots.action"
+        class="mt-0 right-0 absolute leading-6"
+      >
         <slot name="action"></slot>
       </div>
     </div>
     <slot></slot>
     <div v-if="hasErrors">
-      <span class="text-xs font-medium" v-if="errors && !validation.$invalid">
+      <span
+        class="text-xs font-medium"
+        v-if="errors && !validation.$invalid"
+      >
         {{ errors }}
       </span>
-      
     </div>
   </div>
 </template>

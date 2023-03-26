@@ -7,28 +7,20 @@
       {{ animalData.name }}
     </div>
     <div class="flex flex-col">
-      <div class="flex justify-start">
-        Type: {{ animalData.type }}
-      </div>
-      <div class="flex justify-start">
-        Breed: {{ animalData.breed }}
-      </div>
+      <div class="flex justify-start">Type: {{ animalData.type }}</div>
+      <div class="flex justify-start">Breed: {{ animalData.breed }}</div>
     </div>
     <div class="flex flex-col">
-      <div class="flex justify-start">
-        Gender: {{ animalData.gender }}
-      </div>
+      <div class="flex justify-start">Gender: {{ animalData.gender }}</div>
     </div>
-
   </router-link>
 </template>
-  
+
 <script>
 export default {
-    name: "UiAnimalCard",
-    props: {
-      animalData: {type: Object, default: null}
-    },
-
+  name: "UiAnimalCard",
+  props: {
+    animalData: { type: Object, default: null },
+  },
 };
 </script>

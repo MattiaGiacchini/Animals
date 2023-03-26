@@ -14,61 +14,61 @@
     <slot></slot>
   </button>
 </template>
-  
+
 <script>
 import uiLoading from "@/components/uiGeneral/uiLoading.vue";
 
 export default {
-    name: "UiButton",
-    components: {
-        "ui-loading": uiLoading,
+  name: "UiButton",
+  components: {
+    "ui-loading": uiLoading,
+  },
+  inheritAttrs: false,
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
     },
-    inheritAttrs: false,
-    props: {
-        loading: {
-            type: Boolean,
-            default: false,
-        },
-        type: {
-            type: String,
-            values: () => ["default", "primary", "danger"],
-            default: "default",
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
+    type: {
+      type: String,
+      values: () => ["default", "primary", "danger"],
+      default: "default",
     },
-    methods: {
-        handleClick(event) {
-            this.$emit("click", event);
-        },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
+  },
+  methods: {
+    handleClick(event) {
+      this.$emit("click", event);
+    },
+  },
 };
 </script>
-  
+
 <style lang="scss" scoped>
 .default {
-    @apply bg-white border-primary text-primary;
+  @apply bg-white border-primary text-primary;
 
-    &:hover {
-        @apply bg-primary text-white border-primary;
-    }
+  &:hover {
+    @apply bg-primary text-white border-primary;
+  }
 }
 
 .primary {
-    @apply text-white bg-primary;
+  @apply text-white bg-primary;
 
-    &:hover {
-        @apply bg-primary-dark;
-    }
+  &:hover {
+    @apply bg-primary-dark;
+  }
 }
 
 .danger {
-    @apply text-white bg-red-600;
+  @apply text-white bg-red-600;
 
-    &:hover {
-        @apply bg-red-700;
-    }
+  &:hover {
+    @apply bg-red-700;
+  }
 }
 </style>
