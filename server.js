@@ -253,7 +253,7 @@ app.post("/api/animals", (req, res) => {
   animal.id = uuidv4();
   // Add the new animal to the animals array
   animals.push(animal);
-  // Return a response with the new animal object and a 201 status code
+  // Return a response with the full animals list and a 201 status code
   res.status(201).json(animals);
 });
 
