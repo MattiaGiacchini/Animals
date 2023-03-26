@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import uiLoading from "@/components/uiGeneral/uiLoading.vue";
+import uiLoading from "@/components/uiGeneral/uiLoading/uiLoading.vue";
 
 export default {
   name: "uiLoadingOverlay",

@@ -45,7 +45,7 @@ import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
 import uiButton from "@/components/uiGeneral/uiButton.vue";
 import UiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAllAnimals } from "@/api/endpoints/animals";
-import uiLoadingOverlay from "@/components/uiGeneral/uiLoadingOverlay.vue";
+import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/uiLoadingOverlay.vue";
 
 export default {
   name: "AnimalsListView",

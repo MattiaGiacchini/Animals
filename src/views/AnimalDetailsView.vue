@@ -75,7 +75,7 @@
 import uiButton from "@/components/uiGeneral/uiButton.vue";
 import uiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAnimalById, deleteAnimal } from "@/api/endpoints/animals";
-import uiLoadingOverlay from "@/components/uiGeneral/uiLoadingOverlay.vue";
+import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/uiLoadingOverlay.vue";
 
 export default {
   name: "AnimalDetailsView",
