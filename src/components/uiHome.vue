@@ -10,8 +10,8 @@
         class="flex w-max justify-start items-center"
         fill-color="#3c9700"
       ></ui-logo>
-      <h2 class="text-xl">
-        Welcome to <span class="italic font-semibold">Animals</span> platform!
+      <h2 class="text-xl font-bold">
+        Welcome to <span class="text-primary">Animals</span> platform!
       </h2>
     </div>
   </div>
