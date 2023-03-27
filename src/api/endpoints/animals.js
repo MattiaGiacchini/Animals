@@ -3,6 +3,9 @@ const baseUrl = "http://localhost:3000";
 export function getAllAnimals() {
   return fetch(`${baseUrl}/api/animals`)
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     })
     .then((data) => {
@@ -16,13 +19,17 @@ export function getAllAnimals() {
 export function getAnimalById(animalId) {
   return fetch(`${baseUrl}/api/animals/${animalId}`)
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     })
     .then((data) => {
       return data;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
+      throw error;
     });
 }
 
@@ -35,6 +42,9 @@ export function createAnimal(animalData) {
     body: JSON.stringify(animalData),
   })
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     })
     .then((data) => {
@@ -54,6 +64,9 @@ export function updateAnimal(animalId, animalData) {
     body: JSON.stringify(animalData),
   })
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     })
     .then((data) => {
@@ -69,6 +82,9 @@ export function deleteAnimal(animalId) {
     method: "DELETE",
   })
     .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       return response.json();
     })
     .then((data) => {
