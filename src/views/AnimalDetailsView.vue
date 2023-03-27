@@ -8,7 +8,11 @@
       class="w-3/5 py-20 mx-auto"
       v-else
     >
-      <ui-animal-details-card :animalData="animalData"></ui-animal-details-card>
+      <ui-animal-details-card
+        :animalData="animalData"
+        @displayDeleteAnimalModal="displayDeleteAnimalModal = true"
+        @displayEditAnimalModal="displayEditAnimalModal = true"
+      ></ui-animal-details-card>
     </div>
     <ui-animal-data-modal
       v-if="displayEditAnimalModal"

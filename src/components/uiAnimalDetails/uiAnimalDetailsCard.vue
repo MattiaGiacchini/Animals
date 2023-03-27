@@ -38,14 +38,14 @@
       <div class="flex flex-row gap-5 w-2/6 min-w-fit">
         <ui-button
           :loading="loading"
-          @click="displayDeleteAnimalModal = true"
+          @click="$emit('displayDeleteAnimalModal')"
         >
           Delete
         </ui-button>
         <ui-button
           :loading="loading"
           type="primary"
-          @click="displayEditAnimalModal = true"
+          @click="$emit('displayEditAnimalModal')"
         >
           Edit
         </ui-button>
@@ -64,6 +64,7 @@ export default {
   },
   props: {
     animalData: { type: Object, default: null },
+    loading: { type: Boolean, default: false },
   },
   methods: {
     timeStampToDate(date) {
