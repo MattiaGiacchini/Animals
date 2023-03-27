@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AnimalsListView from "@/views/AnimalsListView";
 import AnimalDetailsView from "@/views/AnimalDetailsView";
+import NotFoundView from "@/views/NotFoundView";
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,7 @@ const routes = [
     name: "Home",
     component: HomeView,
   },
+
   {
     path: "/about",
     name: "About",
@@ -30,6 +32,11 @@ const routes = [
     path: "/animals/:animal",
     name: "AnimalDetail",
     component: AnimalDetailsView,
+  },
+  {
+    path: "*",
+    name: "404",
+    component: NotFoundView,
   },
 ];
 
