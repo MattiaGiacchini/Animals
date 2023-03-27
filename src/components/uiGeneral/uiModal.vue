@@ -42,7 +42,7 @@
               {{ secondaryButtonText }}
             </ui-button>
             <ui-button
-              type="primary"
+              :type="primaryButtonType"
               class="w-fit"
               :loading="primaryButtonLoading"
               @click.prevent="handlePrimaryClick"
@@ -58,7 +58,7 @@
 
 <script>
 import { XIcon } from "@vue-hero-icons/outline";
-import uiButton from "@/components/uiGeneral/uiButton.vue";
+import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
 
 export default {
   name: "UiModal",
@@ -86,6 +86,11 @@ export default {
     secondaryButtonLoading: {
       type: Boolean,
       default: false,
+    },
+    primaryButtonType: {
+      type: String,
+      default: "primary",
+      values: () => ["primary", "danger"],
     },
   },
   methods: {

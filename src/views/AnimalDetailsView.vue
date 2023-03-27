@@ -47,14 +47,14 @@
           <div class="flex flex-row gap-5 w-2/6">
             <ui-button
               :loading="loading"
-              @click="deleteAnimal()"
+              @click="displayDeleteAnimalModal = true"
             >
               Delete
             </ui-button>
             <ui-button
               :loading="loading"
               type="primary"
-              @click="displayModal = true"
+              @click="displayEditAnimalModal = true"
             >
               Edit
             </ui-button>
@@ -63,30 +63,43 @@
       </div>
     </div>
     <ui-animal-data-modal
-      v-if="displayModal"
-      @closeModal="displayModal = false"
+      v-if="displayEditAnimalModal"
+      @closeModal="displayEditAnimalModal = false"
       :animalData="animalData"
       @updateData="updateAnimalDetails"
+      modalTitle="Update Animal"
+      :secondaryButtonLoading="loading"
+      :primaryButtonLoading="loading"
+      primaryButtonText="Update"
+      secondaryButtonText="Cancel"
     ></ui-animal-data-modal>
+    <ui-delete-animal-modal
+      :loading="loading"
+      v-if="displayDeleteAnimalModal"
+      @closeModal="displayDeleteAnimalModal = false"
+    ></ui-delete-animal-modal>
   </div>
 </template>
 
 <script>
-import uiButton from "@/components/uiGeneral/uiButton.vue";
+import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
 import uiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAnimalById, deleteAnimal } from "@/api/endpoints/animals";
 import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/uiLoadingOverlay.vue";
+import uiDeleteAnimalModal from "@/components/uiAnimalDetails/uiDeleteAnimalModal.vue";
 
 export default {
   name: "AnimalDetailsView",
   components: {
     "ui-button": uiButton,
     "ui-animal-data-modal": uiAnimalDataModal,
+    "ui-delete-animal-modal": uiDeleteAnimalModal,
     "ui-loading-overlay": uiLoadingOverlay,
   },
   data() {
     return {
-      displayModal: false,
+      displayEditAnimalModal: false,
+      displayDeleteAnimalModal: false,
       animalData: null,
       loading: true,
     };
@@ -107,8 +120,9 @@ export default {
       this.animalData = animal;
     },
     deleteAnimal() {
-      deleteAnimal(this.$route.params.animal);
-      this.$router.push({ name: "AnimalsList" }).catch(() => {});
+      deleteAnimal(this.$route.params.animal).then(() =>
+        this.$router.push({ name: "AnimalsList" }).catch(() => {})
+      );
     },
     timeStampToDate(date) {
       return new Intl.DateTimeFormat("en-GB", {

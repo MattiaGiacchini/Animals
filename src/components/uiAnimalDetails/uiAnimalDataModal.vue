@@ -1,10 +1,10 @@
 <template>
   <ui-modal
-    :title="$route.params.animal ? 'Update Animal' : 'New Animal'"
-    :secondaryButtonLoading="false"
-    :primaryButtonLoading="false"
-    :primaryButtonText="$route.params.animal ? 'Update' : 'Create'"
-    :secondaryButtonText="'Cancel'"
+    :title="modalTitle"
+    :secondaryButtonLoading="secondaryButtonLoading"
+    :primaryButtonLoading="primaryButtonLoading"
+    :primaryButtonText="primaryButtonText"
+    :secondaryButtonText="secondaryButtonText"
     @closeModal="closeModal"
     @primaryClick="saveOrUpdateAnimal"
     @secondaryClick="closeModal"
@@ -82,7 +82,6 @@
               v-model="vaccinated"
               label="Vaccinated"
               class="align-bottom"
-              @change="&quot;&quot;;"
             ></ui-switch>
           </div>
         </div>
@@ -93,10 +92,10 @@
 
 <script>
 import uiModal from "@/components/uiGeneral/uiModal.vue";
-import uiInput from "@/components/uiGeneral/uiInput.vue";
-import uiField from "@/components/uiGeneral/uiField.vue";
-import uiSwitch from "@/components/uiGeneral/uiSwitch.vue";
-import uiButtonPillsGroup from "@/components/uiGeneral/uiButtonPillsGroup.vue";
+import uiInput from "@/components/uiGeneral/uiInput/uiInput.vue";
+import uiField from "@/components/uiGeneral/uiInput/uiField.vue";
+import uiSwitch from "@/components/uiGeneral/uiInput/uiSwitch.vue";
+import uiButtonPillsGroup from "@/components/uiGeneral/uiInput/uiButtonPillsGroup.vue";
 import { required } from "vuelidate/lib/validators";
 import { updateAnimal, createAnimal } from "@/api/endpoints/animals";
 

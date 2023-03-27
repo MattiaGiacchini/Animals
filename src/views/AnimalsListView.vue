@@ -13,6 +13,11 @@
       v-if="displayModal"
       @closeModal="displayModal = false"
       @updateData="updateAnimalsList"
+      modalTitle="New Animal"
+      :secondaryButtonLoading="false"
+      :primaryButtonLoading="false"
+      primaryButtonText="Create"
+      secondaryButtonText="Cancel"
     ></ui-animal-data-modal>
     <ui-side-bar class="w-1/5">
       <div slot="subtitle">Filtros</div>
@@ -42,7 +47,7 @@
 import UiAnimalsList from "@/components/uiAnimalsList.vue";
 import uiSideBar from "@/components/uiGeneral/uiSideBar.vue";
 import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
-import uiButton from "@/components/uiGeneral/uiButton.vue";
+import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
 import UiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAllAnimals } from "@/api/endpoints/animals";
 import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/uiLoadingOverlay.vue";
