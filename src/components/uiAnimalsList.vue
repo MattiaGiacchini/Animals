@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import uiAnimalCard from "@/components/uiAnimalCard.vue";
+import uiAnimalCard from "@/components/UiAnimalCard.vue";
 
 export default {
   name: "UiAnimalsList",

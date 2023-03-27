@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import uiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
+import uiAnimalDataModal from "@/components/uiAnimalDetails/UiAnimalDataModal.vue";
 import { getAnimalById, deleteAnimal } from "@/api/endpoints/animals";
-import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/uiLoadingOverlay.vue";
-import uiDeleteAnimalModal from "@/components/uiAnimalDetails/uiDeleteAnimalModal.vue";
-import UiAnimalDetailsCard from "@/components/uiAnimalDetails/uiAnimalDetailsCard.vue";
+import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/UiLoadingOverlay.vue";
+import uiDeleteAnimalModal from "@/components/uiAnimalDetails/UiDeleteAnimalModal.vue";
+import UiAnimalDetailsCard from "@/components/uiAnimalDetails/UiAnimalDetailsCard.vue";
 
 export default {
   name: "AnimalDetailsView",

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import UiHeader from "@/components/uiHeader/uiHeader.vue";
+import UiHeader from "@/components/uiHeader/UiHeader.vue";
 
 export default {
   components: {

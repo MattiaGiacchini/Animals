@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
+import uiButton from "@/components/uiGeneral/uiInput/UiButton.vue";
 
 export default {
   name: "PageNotFoundView",

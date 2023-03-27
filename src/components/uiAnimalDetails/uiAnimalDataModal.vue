@@ -91,11 +91,11 @@
 </template>
 
 <script>
-import uiModal from "@/components/uiGeneral/uiModal.vue";
-import uiInput from "@/components/uiGeneral/uiInput/uiInput.vue";
-import uiField from "@/components/uiGeneral/uiInput/uiField.vue";
-import uiSwitch from "@/components/uiGeneral/uiInput/uiSwitch.vue";
-import uiButtonPillsGroup from "@/components/uiGeneral/uiInput/uiButtonPillsGroup.vue";
+import uiModal from "@/components/uiGeneral/UiModal.vue";
+import uiInput from "@/components/uiGeneral/uiInput/UiInput.vue";
+import uiField from "@/components/uiGeneral/uiInput/UiField.vue";
+import uiSwitch from "@/components/uiGeneral/uiInput/UiSwitch.vue";
+import uiButtonPillsGroup from "@/components/uiGeneral/uiInput/UiButtonPillsGroup.vue";
 import { required } from "vuelidate/lib/validators";
 import { updateAnimal, createAnimal } from "@/api/endpoints/animals";
 

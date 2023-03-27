@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="flex flex-col gap-5 items-end w-full">
-      <div class="flex flex-row gap-5 w-2/6">
+      <div class="flex flex-row gap-5 w-2/6 min-w-fit">
         <ui-button
           :loading="loading"
           @click="displayDeleteAnimalModal = true"
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
+import uiButton from "@/components/uiGeneral/uiInput/UiButton.vue";
 
 export default {
   name: "UiAnimalDetailsCard",
