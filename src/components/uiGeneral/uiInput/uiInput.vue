@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full relative">
+  <div class="ui-input flex flex-col w-full relative">
     <input
       ref="input"
       :type="inputType"

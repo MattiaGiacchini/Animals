@@ -1,6 +1,6 @@
 <template>
   <h1
-    class="relative min-h-[43px] min-w-[160px]"
+    class="relative min-h-[43px] min-w-[160px] ui-logo"
     @click="$emit('click')"
   >
     <svg

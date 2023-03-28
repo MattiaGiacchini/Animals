@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-h-full h-fit grid grid-cols-3 xl:grid-cols-4 gap-5 p-5 justify-center overflow-y-auto scrollbar"
+    class="ui-animals-list max-h-full h-fit grid grid-cols-3 xl:grid-cols-4 gap-5 p-5 justify-center overflow-y-auto scrollbar"
     v-if="animals.length > 0"
   >
     <ui-animal-card

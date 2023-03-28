@@ -1,6 +1,10 @@
 <template>
-  <router-link class="my-auto text-center text-base font-medium inline-block px-4 py-2 rounded-md " :to="to"
-    :class="`${type}`" exact>
+  <router-link
+    class="ui-header-link my-auto text-center text-base font-medium inline-block px-4 py-2 rounded-md"
+    :to="to"
+    :class="`${type}`"
+    exact
+  >
     <slot></slot>
   </router-link>
 </template>

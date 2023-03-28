@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-primary flex fixed top-0 w-full mx-auto px-4 min-h-[4rem] max-h-16 items-center z-10 justify-between gap-8 shadow-md"
+    class="ui-header bg-primary flex fixed top-0 w-full mx-auto px-4 min-h-[4rem] max-h-16 items-center z-10 justify-between gap-8 shadow-md"
   >
     <ui-logo
       class="flex w-max justify-start items-center cursor-pointer"

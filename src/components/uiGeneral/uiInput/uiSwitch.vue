@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-1">
+  <div class="pl-1 ui-switch">
     <label
       :for="id"
       class="flex items-center"

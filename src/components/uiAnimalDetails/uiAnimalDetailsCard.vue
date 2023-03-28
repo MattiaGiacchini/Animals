@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col gap-5 rounded-md bg-white shadow-lg p-5 font-semibold text-base"
+    class="ui-animal-details-card flex flex-col gap-5 rounded-md bg-white shadow-lg p-5 font-semibold text-base"
   >
     <div class="flex flex-row justify-between">
       <h2 class="text-left text-3xl font-bold">{{ animalData.name }}</h2>

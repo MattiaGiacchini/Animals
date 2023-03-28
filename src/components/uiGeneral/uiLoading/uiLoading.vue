@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="animate-spin h-5 w-5 mr-3 text-white"
+    class="animate-spin h-5 w-5 mr-3 text-white ui-loading"
     viewBox="0 0 24 24"
   >
     <circle

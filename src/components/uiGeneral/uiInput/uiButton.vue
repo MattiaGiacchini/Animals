@@ -1,6 +1,6 @@
 <template>
   <button
-    class="flex w-full disabled:opacity-30 disabled:pointer-events-none disabled:cursor-not-allowed border border-transparent text-sm font-medium focus:outline-none focus:ring-0 justify-center align-middle items-center rounded-md py-2 px-4 transition-colors"
+    class="ui-button flex w-full disabled:opacity-30 disabled:pointer-events-none disabled:cursor-not-allowed border border-transparent text-sm font-medium focus:outline-none focus:ring-0 justify-center align-middle items-center rounded-md py-2 px-4 transition-colors"
     :class="`${type}`"
     :disabled="disabled || loading"
     v-bind="$attrs"

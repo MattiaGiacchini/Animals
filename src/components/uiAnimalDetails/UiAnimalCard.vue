@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="`animals/${animalData.id}`"
-    class="rounded-md bg-white flex flex-col p-5 font-medium shadow-lg hover:cursor-pointer hover:shadow-xl justify-start"
+    class="ui-animal-card rounded-md bg-white flex flex-col p-5 font-medium shadow-lg hover:cursor-pointer hover:shadow-xl justify-start"
   >
     <div class="text-lg font-semibold bg-primary-light/50 rounded-md mb-5 p-1">
       {{ animalData.name }}

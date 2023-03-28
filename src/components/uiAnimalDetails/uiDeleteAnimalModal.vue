@@ -8,6 +8,7 @@
     @primaryClick="deleteAnimal"
     @secondaryClick="closeModal"
     primaryButtonType="danger"
+    class="ui-delete-animal-modal"
   >
     <div class="flex flex-row gap-5 w-full">
       Are you sure you want to delete this animal?

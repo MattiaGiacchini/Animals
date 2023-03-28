@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex fixed z-[200] left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.4)] backdrop-blur-sm"
+    class="ui-modal flex fixed z-[200] left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.4)] backdrop-blur-sm"
   >
     <div
       class="relative shadow-xl align-middle w-full m-auto max-h-full max-w-xl"

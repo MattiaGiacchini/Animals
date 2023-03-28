@@ -1,6 +1,6 @@
 <template>
   <fieldset
-    class="w-full flex flex-row gap-2 justify-center items-center h-8 select-none"
+    class="ui-button-pills-group w-full flex flex-row gap-2 justify-center items-center h-8 select-none"
   >
     <div
       v-for="value in values"

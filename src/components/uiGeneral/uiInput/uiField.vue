@@ -1,6 +1,6 @@
 <template>
   <div
-    class="uiField flex flex-wrap justify-start relative leading-5 items-center"
+    class="ui-field uiField flex flex-wrap justify-start relative leading-5 items-center"
     :class="{ 'uiField--has-errors': hasErrors }"
   >
     <div class="inline-flex items-center justify-between w-full">
