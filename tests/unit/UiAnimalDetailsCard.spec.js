@@ -57,17 +57,6 @@ describe("UiAnimalDetailsCard", () => {
   });
 
   it("displays delete and edit buttons", () => {
-    expect(wrapper.findAllComponents({ name: "UiButton" })).toHaveLength(2);
-  });
-
-  TODO;
-
-  it("displays delete and edit buttons", () => {
-    wrapper.find(".deleteAnimal").trigger("click");
-    expect(wrapper.emitted("displayDeleteAnimalModal")).toHaveLength(1);
-    const button = wrapper.find(UiButton);
-    button.trigger("click");
-    expect(MessageComponent.props()).toEqual({ msg: "message" });
-    expect(MessageComponent.props()).toEqual({ msg: "toggled message" });
+    expect(wrapper.findAllComponents(UiButton)).toHaveLength(2);
   });
 });

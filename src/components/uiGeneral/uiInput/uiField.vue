@@ -63,9 +63,6 @@ export default {
     },
   },
   computed: {
-    /**
-     * Check if field is required
-     */
     isRequired() {
       return (
         this.required || (this.validation && this.validation.$params.required)

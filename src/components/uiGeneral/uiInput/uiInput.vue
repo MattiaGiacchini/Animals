@@ -9,12 +9,9 @@
       v-bind="$attrs"
       class="appearance-none no-spin-buttons w-full relative block px-3 py-2 border placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 text-sm"
       :class="classes"
-      @focus="onFocus"
-      @blur="onBlur"
       @input="onInput"
       @change="onChange"
     />
-
     <slot></slot>
   </div>
 </template>
@@ -37,7 +34,6 @@ export default {
           "password",
           "email",
           "number",
-          "search",
           "tel",
           "url",
           "date",
@@ -62,8 +58,6 @@ export default {
   data() {
     return {
       inputType: this.type,
-      isPasswordVisible: false,
-      focusLost: false,
     };
   },
   computed: {
@@ -81,34 +75,10 @@ export default {
       this.localValue = event.target.value;
     },
     onChange(event) {
-      if (event.target && !this.focusLost && !event.bubbles) {
+      if (event.target && !event.bubbles) {
         this.localValue = event.target.value;
         this.$emit("change", event.target.value);
       }
-    },
-    onFocus(event) {
-      this.focusLost = false;
-      this.$emit("focus", event.target.value);
-    },
-    /**
-     * On focus lose, reset propagated change flag to avoid trigger change event twice
-     */
-    onBlur(event) {
-      this.focusLost = true;
-      this.$emit("blur", event.target.value);
-    },
-    togglePasswordVisibility() {
-      this.isPasswordVisible = !this.isPasswordVisible;
-      this.inputType = this.isPasswordVisible ? "text" : "password";
-      this.$nextTick(() => {
-        this.$refs.input.focus();
-      });
-    },
-    editAmount(amount) {
-      this.localValue = Math.max(
-        0,
-        parseInt(this.localValue) + parseInt(amount)
-      );
     },
   },
 };

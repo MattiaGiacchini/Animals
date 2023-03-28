@@ -37,7 +37,7 @@ export default {
     },
     deleteAnimal() {
       deleteAnimal(this.$route.params.animal).then(() =>
-        this.$router.push({ name: "AnimalsList" }).catch(() => {})
+        this.$router.push({ name: "AnimalsList" })
       );
     },
   },

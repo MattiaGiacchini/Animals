@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 import UiAnimalsList from "@/components/UiAnimalsList.vue";
-import UiAnimalCard from "@/components/uiAnimalDetails/UiAnimalCard.vue";
+import UiAnimalCard from "@/components/uiAnimalDetails/uiAnimalCard.vue";
 
 describe("Empty UiAnimalsList", () => {
   let wrapper;
