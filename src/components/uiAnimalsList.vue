@@ -30,12 +30,6 @@ export default {
   components: {
     "ui-animal-card": uiAnimalCard,
   },
-  data() {
-    return {
-      loading: false,
-      info: null,
-    };
-  },
   props: {
     animals: {
       type: Array,

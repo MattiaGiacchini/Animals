@@ -37,12 +37,14 @@
     <div class="flex flex-col gap-5 items-end w-full">
       <div class="flex flex-row gap-5 w-2/6 min-w-fit">
         <ui-button
+          class="deleteAnimal"
           :loading="loading"
           @click="$emit('displayDeleteAnimalModal')"
         >
           Delete
         </ui-button>
         <ui-button
+          class="editAnimal"
           :loading="loading"
           type="primary"
           @click="$emit('displayEditAnimalModal')"
