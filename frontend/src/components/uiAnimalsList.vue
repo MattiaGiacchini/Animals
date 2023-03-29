@@ -14,7 +14,7 @@
   </div>
   <div
     v-else
-    class="w-full h-fit flex justify-center align-middle m-auto"
+    class="h-fit flex justify-center align-middle m-auto"
   >
     <h2 class="font-bold text-xl mt-8 p-5 h-fit">
       Sorry, we could not find any results matching your search.
