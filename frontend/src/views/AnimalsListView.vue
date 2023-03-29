@@ -6,7 +6,7 @@
     ></ui-loading-overlay>
     <ui-animals-list
       v-else
-      :animals="animals"
+      :animals="filteredAnimals"
       class="w-4/5"
     ></ui-animals-list>
     <ui-animal-data-modal
@@ -20,10 +20,9 @@
       @updateData="updateAnimalsList"
     ></ui-animal-data-modal>
     <ui-side-bar class="w-1/5">
-      <div slot="subtitle">Filtros</div>
       <ui-animals-filters
         slot="main-content"
-        :animalsCategories="[]"
+        @search="filterResults"
       ></ui-animals-filters>
       <div
         slot="bottom-controls"
@@ -67,6 +66,7 @@ export default {
       animals: [],
       displayModal: false,
       loading: true,
+      searchParameter: "",
     };
   },
   created() {
@@ -83,6 +83,19 @@ export default {
   methods: {
     updateAnimalsList(animals) {
       this.animals = animals;
+    },
+    filterResults(searchParameter) {
+      this.searchParameter = searchParameter;
+    },
+  },
+  computed: {
+    filteredAnimals() {
+      return this.animals.filter(
+        (animal) =>
+          animal.name.toLowerCase().includes(this.searchParameter) ||
+          animal.type.toLowerCase().includes(this.searchParameter) ||
+          animal.breed.toLowerCase().includes(this.searchParameter)
+      );
     },
   },
 };
