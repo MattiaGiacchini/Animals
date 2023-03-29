@@ -4,7 +4,7 @@
     v-if="animals.length > 0"
   >
     <ui-animal-card
-      v-for="(animal, index) in animals"
+      v-for="(animal, index) in sortedAnimals"
       :animalData="animal"
       :key="animal.id"
       class="bg-primary-light"
@@ -36,6 +36,13 @@ export default {
       default() {
         return [];
       },
+    },
+  },
+  computed: {
+    sortedAnimals() {
+      return new Array(this.animals)[0].sort((a, b) =>
+        a.lastUpdate < b.lastUpdate ? 1 : b.lastUpdate < a.lastUpdate ? -1 : 0
+      );
     },
   },
 };
