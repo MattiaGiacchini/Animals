@@ -1,0 +1,14 @@
+version: "1"
+services:
+  animals-frontend:
+    image: animals-frontend:latest
+    environment:
+      PORT: 8080
+    ports:
+      - 8080:8080
+  animals-backend:
+    image: animals-backend:latest
+    environment:
+      PORT: 3000
+    ports:
+      - 3000:3000
