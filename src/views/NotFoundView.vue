@@ -4,13 +4,15 @@
   >
     <img src="@/assets/404.svg" />
     <h2 class="font-bold text-xl mt-8">Ooops! Resource not found</h2>
-    <ui-button
-      class="w-auto mt-3"
-      type="primary"
-      @click.prevent="$router.push({ name: 'AnimalsList' })"
-    >
-      Go to animals list
-    </ui-button>
+    <div class="w-fit">
+      <ui-button
+        class="mt-3"
+        type="primary"
+        @click.prevent="$router.push({ name: 'AnimalsList' })"
+      >
+        Go to animals list
+      </ui-button>
+    </div>
   </div>
 </template>
 <script>
