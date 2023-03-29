@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import uiAnimalCard from "@/components/uiAnimalDetails/UiAnimalCard.vue";
+import uiAnimalCard from "@/components/uiAnimalDetails/uiAnimalCard.vue";
 
 export default {
   name: "UiAnimalsList",

@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import UiHeaderLink from "@/components/uiHeader/UiHeaderLink.vue";
-import UiLogo from "@/components/uiGeneral/UiLogo.vue";
+import UiHeaderLink from "@/components/uiHeader/uiHeaderLink.vue";
+import UiLogo from "@/components/uiGeneral/uiLogo.vue";
 
 export default {
   name: "UiHeader",

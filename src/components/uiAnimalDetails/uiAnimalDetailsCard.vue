@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import uiButton from "@/components/uiGeneral/uiInput/UiButton.vue";
+import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
 
 export default {
   name: "UiAnimalDetailsCard",

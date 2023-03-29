@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import uiModal from "@/components/uiGeneral/UiModal.vue";
+import uiModal from "@/components/uiGeneral/uiModal.vue";
 import { deleteAnimal } from "@/api/endpoints/animals";
 
 export default {

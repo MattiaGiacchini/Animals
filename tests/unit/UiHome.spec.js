@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import UiHome from "@/components/UiHome.vue";
+import UiHome from "@/components/uiHome.vue";
 
 describe("UiHome.vue", () => {
   const msg = "new message";

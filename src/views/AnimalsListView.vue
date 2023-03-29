@@ -44,13 +44,13 @@
 </template>
 
 <script>
-import UiAnimalsList from "@/components/UiAnimalsList.vue";
-import uiSideBar from "@/components/uiGeneral/UiSideBar.vue";
-import uiAnimalsFilters from "@/components/UiAnimalsFilters.vue";
-import uiButton from "@/components/uiGeneral/uiInput/UiButton.vue";
-import UiAnimalDataModal from "@/components/uiAnimalDetails/UiAnimalDataModal.vue";
+import UiAnimalsList from "@/components/uiAnimalsList.vue";
+import uiSideBar from "@/components/uiGeneral/uiSideBar.vue";
+import uiAnimalsFilters from "@/components/uiAnimalsFilters.vue";
+import uiButton from "@/components/uiGeneral/uiInput/uiButton.vue";
+import UiAnimalDataModal from "@/components/uiAnimalDetails/uiAnimalDataModal.vue";
 import { getAllAnimals } from "@/api/endpoints/animals";
-import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/UiLoadingOverlay.vue";
+import uiLoadingOverlay from "@/components/uiGeneral/uiLoading/uiLoadingOverlay.vue";
 
 export default {
   name: "AnimalsListView",

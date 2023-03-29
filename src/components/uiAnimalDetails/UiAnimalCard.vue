@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
 <template>
   <router-link
     :to="`animals/${animalData.id}`"

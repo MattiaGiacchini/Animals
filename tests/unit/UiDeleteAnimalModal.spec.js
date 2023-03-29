@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
-import UiDeleteAnimalModal from "@/components/uiAnimalDetails/UiDeleteAnimalModal.vue";
-import UiModal from "@/components/uiGeneral/UiModal.vue";
+import UiDeleteAnimalModal from "@/components/uiAnimalDetails/uiDeleteAnimalModal.vue";
+import UiModal from "@/components/uiGeneral/uiModal.vue";
 import { deleteAnimal } from "@/api/endpoints/animals";
 
 jest.mock("@/api/endpoints/animals", () => ({

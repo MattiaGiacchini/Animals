@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import UiAnimalsList from "@/components/UiAnimalsList.vue";
+import UiAnimalsList from "@/components/uiAnimalsList.vue";
 import UiAnimalCard from "@/components/uiAnimalDetails/uiAnimalCard.vue";
 
 describe("Empty UiAnimalsList", () => {
