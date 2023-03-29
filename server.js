@@ -124,27 +124,6 @@ app.put("/api/animals/:id", (req, res) => {
   });
 });
 
-// app.put("/api/animals/:id", (req, res) => {
-//   // Get the animal ID from the request parameters
-//   const animalId = req.params.id;
-//   // Get the updated animal data from the request body
-//   const updatedAnimal = req.body;
-//   // Find the index of the animal with the given ID
-//   const index = animals.findIndex((animal) => animal.id === animalId);
-//   // If the animal was found, update its data and return a response with the updated animal object
-//   if (index !== -1) {
-//     animals[index] = {
-//       ...animals[index],
-//       ...updatedAnimal,
-//       id: animalId, // Make sure the ID stays the same
-//     };
-//     res.json(animals[index]);
-//   } else {
-//     // If the animal was not found, return a response with a 404 status code
-//     res.sendStatus(404);
-//   }
-// });
-
 // Route to delete an animal
 app.delete("/api/animals/:id", (req, res) => {
   // Read the contents of the animals.json file
