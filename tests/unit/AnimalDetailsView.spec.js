@@ -8,19 +8,18 @@ jest.mock("@/api/endpoints/animals", () => ({
 }));
 
 describe("AnimalDetailsView", () => {
-  it("renders loading overlay when data is being fetched", () => {
-    const wrapper = mount(AnimalDetailsView, {
-      mocks: {
-        $route: {
-          params: { animal: 1 },
-        },
-      },
-    });
-    expect(wrapper.findComponent(uiLoadingOverlay).exists()).toBe(true);
-  });
+  const animalData = {
+    id: 1,
+    name: "Fluffy",
+    type: "Cat",
+    breed: "Siamese",
+    gender: "Female",
+    vaccinated: true,
+    lastVisit: Date.now(),
+    lastUpdate: Date.now(),
+  };
 
   it("fetches animal data when created", async () => {
-    const animalData = { name: "Dog" };
     const getAnimalById = jest.spyOn(
       require("@/api/endpoints/animals"),
       "getAnimalById"
@@ -33,6 +32,7 @@ describe("AnimalDetailsView", () => {
         },
       },
     });
+    expect(wrapper.findComponent(uiLoadingOverlay).exists()).toBe(true);
     await wrapper.vm.$nextTick();
     expect(getAnimalById).toBeCalledWith(1);
     expect(wrapper.vm.animalData).toEqual(animalData);
