@@ -16,11 +16,8 @@ COPY . .
 # Build the frontend
 RUN yarn build
 
-# Expose the frontend port (e.g. 8080)
-EXPOSE 8080 3000
-
-# Start the backend server
-RUN ["node", "server.js"]
+# Expose the frontend port
+EXPOSE $PORT
 
 # Start the frontend server
 CMD ["yarn", "serve"]
