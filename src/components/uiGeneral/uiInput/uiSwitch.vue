@@ -22,8 +22,9 @@
       <label
         :for="id"
         class="ml-3 text-gray-900 font-medium text-base"
-        >{{ label }}</label
       >
+        {{ label }}
+      </label>
     </label>
   </div>
 </template>

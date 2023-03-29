@@ -1,14 +1,14 @@
 <template>
   <ui-modal
+    class="ui-delete-animal-modal"
     title="Delete Animal"
     :primaryButtonLoading="loading"
     primaryButtonText="Confirm"
     secondaryButtonText="Cancel"
+    primaryButtonType="danger"
     @closeModal="closeModal"
     @primaryClick="deleteAnimal"
     @secondaryClick="closeModal"
-    primaryButtonType="danger"
-    class="ui-delete-animal-modal"
   >
     <div class="flex flex-row gap-5 w-full">
       Are you sure you want to delete this animal?
@@ -21,7 +21,7 @@ import uiModal from "@/components/uiGeneral/UiModal.vue";
 import { deleteAnimal } from "@/api/endpoints/animals";
 
 export default {
-  name: "uiDeleteAnimalModal",
+  name: "UiDeleteAnimalModal",
   components: {
     "ui-modal": uiModal,
   },

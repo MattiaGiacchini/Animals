@@ -11,13 +11,13 @@
     ></ui-animals-list>
     <ui-animal-data-modal
       v-if="displayModal"
+      modalTitle="New Animal"
+      primaryButtonText="Create"
+      :primaryButtonLoading="false"
+      secondaryButtonText="Cancel"
+      :secondaryButtonLoading="false"
       @closeModal="displayModal = false"
       @updateData="updateAnimalsList"
-      modalTitle="New Animal"
-      :secondaryButtonLoading="false"
-      :primaryButtonLoading="false"
-      primaryButtonText="Create"
-      secondaryButtonText="Cancel"
     ></ui-animal-data-modal>
     <ui-side-bar class="w-1/5">
       <div slot="subtitle">Filtros</div>
@@ -69,11 +69,6 @@ export default {
       loading: true,
     };
   },
-  methods: {
-    updateAnimalsList(animals) {
-      this.animals = animals;
-    },
-  },
   created() {
     getAllAnimals()
       .then((data) => {
@@ -84,6 +79,11 @@ export default {
         this.$router.push({ path: "/404" }).catch(() => {});
       })
       .finally(() => (this.loading = false));
+  },
+  methods: {
+    updateAnimalsList(animals) {
+      this.animals = animals;
+    },
   },
 };
 </script>

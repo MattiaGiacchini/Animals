@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "uiHeaderRouterLink",
+  name: "UiHeaderRouterLink",
   inheritAttrs: false,
   props: {
     type: {

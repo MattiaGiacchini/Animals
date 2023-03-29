@@ -7,8 +7,8 @@
       @click="$router.push({ name: 'Home' }).catch(() => {})"
     ></ui-logo>
     <div class="flex w-full justify-end gap-2">
-      <ui-header-link :to="{ name: 'Home' }">Home</ui-header-link>
-      <ui-header-link :to="{ name: 'AnimalsList' }">Animals</ui-header-link>
+      <ui-header-link :to="{ name: 'Home' }"> Home </ui-header-link>
+      <ui-header-link :to="{ name: 'AnimalsList' }"> Animals </ui-header-link>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ import UiHeaderLink from "@/components/uiHeader/UiHeaderLink.vue";
 import UiLogo from "@/components/uiGeneral/UiLogo.vue";
 
 export default {
-  name: "uiHeader",
+  name: "UiHeader",
   components: {
     "ui-logo": UiLogo,
     "ui-header-link": UiHeaderLink,

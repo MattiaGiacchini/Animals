@@ -10,10 +10,10 @@
 import uiLoading from "@/components/uiGeneral/uiLoading/UiLoading.vue";
 
 export default {
-  name: "uiLoadingOverlay",
-  props: {},
+  name: "UiLoadingOverlay",
   components: {
     "ui-loading": uiLoading,
   },
+  props: {},
 };
 </script>

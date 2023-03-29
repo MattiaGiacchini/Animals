@@ -14,7 +14,8 @@
         <span
           v-if="isRequired"
           class="ml-1 mt-0 text-red-600/[1] font-medium leading-6"
-          >*
+        >
+          *
         </span>
       </div>
       <slot name="icons"></slot>
@@ -28,8 +29,8 @@
     <slot></slot>
     <div v-if="hasErrors">
       <span
-        class="text-xs font-medium"
         v-if="errors && !validation.$invalid"
+        class="text-xs font-medium"
       >
         {{ errors }}
       </span>
@@ -39,7 +40,7 @@
 
 <script>
 export default {
-  name: "uiField",
+  name: "UiField",
   props: {
     id: {
       type: String,

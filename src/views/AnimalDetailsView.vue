@@ -5,8 +5,8 @@
       class="w-full"
     ></ui-loading-overlay>
     <div
-      class="w-3/5 py-20 mx-auto"
       v-else
+      class="w-3/5 py-20 mx-auto"
     >
       <ui-animal-details-card
         :animalData="animalData"
@@ -16,18 +16,18 @@
     </div>
     <ui-animal-data-modal
       v-if="displayEditAnimalModal"
-      @closeModal="displayEditAnimalModal = false"
       :animalData="animalData"
-      @updateData="updateAnimalDetails"
       modalTitle="Update Animal"
-      :secondaryButtonLoading="loading"
-      :primaryButtonLoading="loading"
       primaryButtonText="Update"
+      :primaryButtonLoading="loading"
       secondaryButtonText="Cancel"
+      :secondaryButtonLoading="loading"
+      @closeModal="displayEditAnimalModal = false"
+      @updateData="updateAnimalDetails"
     ></ui-animal-data-modal>
     <ui-delete-animal-modal
-      :loading="loading"
       v-if="displayDeleteAnimalModal"
+      :loading="loading"
       @closeModal="displayDeleteAnimalModal = false"
     ></ui-delete-animal-modal>
   </div>

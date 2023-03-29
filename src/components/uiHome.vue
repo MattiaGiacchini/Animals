@@ -21,7 +21,7 @@
 import UiLogo from "@/components/uiGeneral/UiLogo.vue";
 
 export default {
-  name: "uiHeader",
+  name: "UiHome",
   components: {
     "ui-logo": UiLogo,
   },

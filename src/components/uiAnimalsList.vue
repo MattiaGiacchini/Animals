@@ -1,12 +1,12 @@
 <template>
   <div
-    class="ui-animals-list max-h-full h-fit grid grid-cols-3 xl:grid-cols-4 gap-5 p-5 justify-center overflow-y-auto scrollbar"
     v-if="animals.length > 0"
+    class="ui-animals-list max-h-full h-fit grid grid-cols-3 xl:grid-cols-4 gap-5 p-5 justify-center overflow-y-auto scrollbar"
   >
     <ui-animal-card
       v-for="(animal, index) in sortedAnimals"
-      :animalData="animal"
       :key="animal.id"
+      :animalData="animal"
       class="bg-primary-light"
     >
       {{ index }}

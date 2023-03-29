@@ -1,5 +1,6 @@
 <template>
   <ui-modal
+    class="ui-animal-data-modal"
     :title="modalTitle"
     :secondaryButtonLoading="secondaryButtonLoading"
     :primaryButtonLoading="primaryButtonLoading"
@@ -8,7 +9,6 @@
     @closeModal="closeModal"
     @primaryClick="saveOrUpdateAnimal"
     @secondaryClick="closeModal"
-    class="ui-animal-data-modal"
   >
     <div class="flex flex-row gap-5 w-full">
       <div class="flex flex-col gap-5 h-full w-full">

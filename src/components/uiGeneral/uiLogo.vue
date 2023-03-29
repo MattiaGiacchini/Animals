@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  name: "uiLogo",
+  name: "UiLogo",
   props: {
     fillColor: {
       type: String,

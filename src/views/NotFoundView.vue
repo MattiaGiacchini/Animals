@@ -8,8 +8,9 @@
       class="w-auto mt-3"
       type="primary"
       @click.prevent="$router.push({ name: 'AnimalsList' })"
-      >Go to animals list</ui-button
     >
+      Go to animals list
+    </ui-button>
   </div>
 </template>
 <script>
