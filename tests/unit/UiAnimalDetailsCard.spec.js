@@ -9,14 +9,14 @@ describe("UiAnimalDetailsCard", () => {
     wrapper = shallowMount(UiAnimalDetailsCard, {
       propsData: {
         animalData: {
-          id: 1,
-          name: "Fluffy",
+          id: "74fc362a10d1f0f8ba827e82280cd2ec",
+          name: "Example animal",
           type: "Cat",
-          breed: "Siamese",
+          breed: "Persian",
           gender: "Female",
           vaccinated: true,
-          lastVisit: Date.now(),
-          lastUpdate: Date.now(),
+          lastVisit: "2021-01-28T04:03:02.216Z",
+          lastUpdate: "2021-01-28T04:03:02.216Z",
         },
       },
     });
@@ -27,18 +27,20 @@ describe("UiAnimalDetailsCard", () => {
   });
 
   it("renders animal name correctly", () => {
-    expect(wrapper.find("h2").text()).toEqual("Fluffy");
+    expect(wrapper.find("h2").text()).toEqual("Example animal");
   });
 
   it("renders animal id correctly", () => {
-    expect(wrapper.find("p.font-thin").text()).toEqual("1");
+    expect(wrapper.find("p.font-thin").text()).toEqual(
+      "74fc362a10d1f0f8ba827e82280cd2ec"
+    );
   });
   it("renders animal type correctly", () => {
     expect(wrapper.find(".font-extralight + p").text()).toEqual("Cat");
   });
 
   it("renders animal breed correctly", () => {
-    expect(wrapper.find(".font-thin + p").text()).toEqual("Siamese");
+    expect(wrapper.find(".font-thin + p").text()).toEqual("Persian");
   });
 
   it("renders animal gender correctly", () => {
